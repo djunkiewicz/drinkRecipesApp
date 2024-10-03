@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(59, 102, 244);
+}
+
+.header {
+  text-align: center;
+  background-color: rgb(162, 162, 255);
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.finding-menu {
+  margin-left: 20vw;
+  margin-right: 20vh;
+  margin-top: 100px;
+  margin-bottom: 250px;
+}
+
+.finding-results {
+  margin-left: 20vw;
+  margin-right: 20vh;
+  margin-top: 100px;
+  margin-bottom: 250px;
+  background-color: rgb(254, 184, 255);
+}

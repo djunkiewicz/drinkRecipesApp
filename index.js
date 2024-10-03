@@ -14,6 +14,11 @@ app.get("/", (req, res) => {
   res.render("content.ejs");
 });
 
+app.get("/find", (req, res) => {
+  res.render("content.ejs", { data: "your result" });
+  console.log(req.body);
+});
+
 app.listen(port, () => {
   console.log(`Your app is running on port: ${port}`);
 });
