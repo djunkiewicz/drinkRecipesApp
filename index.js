@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 app.get("/find", (req, res) => {
   res.render("content.ejs", { data: "your result" });
-  console.log(req.body);
+  console.log(req.query);
 });
 
 app.listen(port, () => {
