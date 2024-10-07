@@ -3,20 +3,19 @@
 <div class="finding-menu">
   <h2>Find drink you want to prepare</h2>
   <form action="/find" method="get">
-    <label for="name">Type name of drink or ingredient:</label>
+    <label for="name">Enter the name of the drink or part of it:</label>
     <input type="text" name="name" id="name">
-    <p>Search by:</p>
-    <label for="drink">drink name</label>
-    <input type="checkbox" name="drink" id="drink">
-    <label for="ingredient">ingredient</label>
-    <input type="checkbox" name="ingredient" id="ingredient">
     <button type="submit">SEARCH</button>
   </form>
 </div>
 
 <div class="finding-results">
   <%if(locals.data){ %>
-  <p><%=data%></p>
+  <%data.forEach((drink) => { %>
+  <h3><%=drink.name%></h3>
+  <img src="<%=drink.imageURL%>" alt="drink image">
+  <p><%=drink.ingredient1.measure%> <%=drink.ingredient1.name%></p>
+  <%})%>
   <%} else { %>
   <% } %>
 </div>

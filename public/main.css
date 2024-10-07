@@ -16,7 +16,7 @@ body {
   margin-left: 20vw;
   margin-right: 20vh;
   margin-top: 100px;
-  margin-bottom: 250px;
+  margin-bottom: 50px;
 }
 
 .finding-results {
@@ -25,4 +25,9 @@ body {
   margin-top: 100px;
   margin-bottom: 250px;
   background-color: rgb(254, 184, 255);
+}
+
+.finding-results img {
+  height: 200px;
+  aspect-ratio: 1/1;
 }
