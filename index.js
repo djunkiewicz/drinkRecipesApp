@@ -13,12 +13,16 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("content.ejs");
+  res.render("content.ejs", { data: drinkList });
 });
 
 app.get("/find", async (req, res) => {
-  drinkList = await prepareDrinkList(req.query);
-  res.render("content.ejs", { data: drinkList });
+  try {
+    drinkList = await prepareDrinkList(req.query);
+    res.render("content.ejs", { data: drinkList });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 });
 
 app.listen(port, () => {

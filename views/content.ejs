@@ -9,6 +9,9 @@
   </form>
 </div>
 
+<div id="data-container"></div>
+<div id="pagination-container"></div>
+
 <div class="finding-results">
   <%if(locals.data){ %>
   <%data.forEach((drink) => { %>
@@ -19,5 +22,33 @@
   <%} else { %>
   <% } %>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="pagination.js"></script>
+
+<script>
+  var dataReceived = <%-JSON.stringify(data)%>;
+</script>
+
+<script src="test.js"></script>
+
+<script>
+  $('#pagination-container').pagination({
+    dataSource: dataReceived,
+    callback: function(data, pagination) {
+      var html = singlePageTemplate(data);
+      $('#data-container').html(html);
+    }
+  })
+
+  function singlePageTemplate(data) {
+    let htmlString = "<ul>";
+    data.forEach(element => {
+      htmlString += `<li>${element.name}</i>`;
+    });
+    htmlString += '</ul>';
+    return htmlString;
+  }
+</script>
 
 <%- include('./partials/footer.ejs')%>
