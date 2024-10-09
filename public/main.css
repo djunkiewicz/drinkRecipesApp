@@ -31,3 +31,9 @@ body {
   height: 200px;
   aspect-ratio: 1/1;
 }
+
+#pagination-container,
+#data-container {
+  margin-left: 20vw;
+  margin-right: 20vw;
+}

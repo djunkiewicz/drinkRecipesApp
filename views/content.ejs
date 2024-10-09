@@ -27,14 +27,14 @@
 <script src="pagination.js"></script>
 
 <script>
-  var dataReceived = <%-JSON.stringify(data)%>;
+  var dataReceived = <%- JSON.stringify(data)%>;
 </script>
-
-<script src="test.js"></script>
 
 <script>
   $('#pagination-container').pagination({
     dataSource: dataReceived,
+    pageSize: 3,
+    className: 'paginationjs-big',
     callback: function(data, pagination) {
       var html = singlePageTemplate(data);
       $('#data-container').html(html);
