@@ -5,7 +5,7 @@ body {
 .header {
   text-align: center;
   background-color: rgb(162, 162, 255);
-  height: 25vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,15 +15,14 @@ body {
 .finding-menu {
   margin-left: 20vw;
   margin-right: 20vh;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
 .finding-results {
   margin-left: 20vw;
   margin-right: 20vh;
-  margin-top: 100px;
-  margin-bottom: 250px;
+  margin-bottom: 25px;
   background-color: rgb(254, 184, 255);
 }
 
@@ -32,8 +31,6 @@ body {
   aspect-ratio: 1/1;
 }
 
-#pagination-container,
-#data-container {
-  margin-left: 20vw;
-  margin-right: 20vw;
+#pagination-container {
+  margin-left: 25vw;
 }
