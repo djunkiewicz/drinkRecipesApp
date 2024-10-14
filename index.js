@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 
 const port = 3000;
 const app = express();
+const nameRegex = new RegExp(".*\\S.*");
 let drinkList = [];
 const drinksDbBaseURL = "https://www.thecocktaildb.com/api/json/v1/1";
 const ingredientsPicturesBaseURL =
@@ -18,8 +19,10 @@ app.get("/", (req, res) => {
 
 app.get("/find", async (req, res) => {
   try {
-    drinkList = await prepareDrinkList(req.query);
-    res.render("content.ejs", { data: drinkList });
+    if (nameRegex.test(req.query.name) === true) {
+      drinkList = await prepareDrinkList(req.query);
+      res.render("content.ejs", { data: drinkList });
+    }
   } catch (error) {
     res.status(500).send(error.message);
   }
