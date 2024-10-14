@@ -35,7 +35,9 @@ async function prepareDrinkList(reqQuery) {
   let response = await axios(
     `${drinksDbBaseURL}/search.php?s=${reqQuery.name}`
   );
-  return mapToDrinkList(response.data.drinks);
+  if (response.data.drinks !== null) {
+    return mapToDrinkList(response.data.drinks);
+  } else return [];
 }
 
 function mapToDrinkList(elements) {

@@ -20,15 +20,21 @@
 </script>
 
 <script>
-  $('#pagination-container').pagination({
-    dataSource: dataReceived,
-    pageSize: 3,
-    className: 'paginationjs-big',
-    callback: function(data, pagination) {
-      var html = singlePageTemplate(data);
-      $('#data-container').html(html);
-    }
-  })
+  if (dataReceived.length !== 0) {
+    $('#pagination-container').pagination({
+      dataSource: dataReceived,
+      pageSize: 3,
+      className: 'paginationjs-big',
+      callback: function(data, pagination) {
+        var html = singlePageTemplate(data);
+        $('#data-container').html(html);
+      }
+    })
+  } else {
+    var html = "<h3>We didn't find the drink you are looking for 👻</h3>";
+    $('#data-container').html(html);
+  }
+
 
   function singlePageTemplate(data) {
     let htmlString = '<div class="finding-results">';
