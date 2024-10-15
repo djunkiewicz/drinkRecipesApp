@@ -31,6 +31,7 @@ app.get("/find", async (req, res) => {
 app.get("/drink/:id", async (req, res) => {
   try {
     let drink = await findDrinkById(req.params.id);
+
     res.render("drink_details.ejs", { drink: drink });
   } catch (error) {
     res.status(500).send(error.message);
