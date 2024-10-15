@@ -52,50 +52,11 @@
   function templateIndgredients(drink) {
     console.log(drink);
     let html = `<p>`;
-    if (drink.ingredient1.name != null) {
-      html += `${drink.ingredient1.name} `;
-    }
-    if (drink.ingredient2.name != null) {
-      html += `${drink.ingredient2.name} `;
-    }
-    if (drink.ingredient3.name != null) {
-      html += `${drink.ingredient3.name} `;
-    }
-    if (drink.ingredient4.name != null) {
-      html += `${drink.ingredient4.name} `;
-    }
-    if (drink.ingredient5.name != null) {
-      html += `${drink.ingredient5.name} `;
-    }
-    if (drink.ingredient6.name != null) {
-      html += `${drink.ingredient6.name} `;
-    }
-    if (drink.ingredient7.name != null) {
-      html += `${drink.ingredient7.name} `;
-    }
-    if (drink.ingredient8.name != null) {
-      html += `${drink.ingredient8.name} `;
-    }
-    if (drink.ingredient9.name != null) {
-      html += `${drink.ingredient9.name} `;
-    }
-    if (drink.ingredient10.name != null) {
-      html += `${drink.ingredient10.name} `;
-    }
-    if (drink.ingredient11.name != null) {
-      html += `${drink.ingredient11.name} `;
-    }
-    if (drink.ingredient12.name != null) {
-      html += `${drink.ingredient12.name} `;
-    }
-    if (drink.ingredient13.name != null) {
-      html += `${drink.ingredient13.name} `;
-    }
-    if (drink.ingredient14.name != null) {
-      html += `${drink.ingredient14.name} `;
-    }
-    if (drink.ingredient15.name != null) {
-      html += `${drink.ingredient15.name} `;
+    console.log(drink.ingredients.length);
+    for (let i = 0; i < drink.ingredients.length; i++) {
+      if (drink.ingredients[i].name != null) {
+        html += `${drink.ingredients[i].name} `;
+      }
     }
     html += `</p>`
     return html;
