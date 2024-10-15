@@ -1,6 +1,15 @@
 <%- include('./partials/header.ejs')%>
 
 <div class="drink-details-container">
+  <%if(locals.drink) {%>
+  <h1><%=drink.name%></h3>
+    <p>Category: <%=drink.category%></p>
+    <img src="<%=drink.imageURL%>" alt="<%=drink.name%> image">
+    
+    <p>How to prepare: <%=drink.instruction%></p>
+    <%} else {%>
+    <h3>We cannot find the page you are looking for</h3>
+    <%}%>
   <h3>TODO</h3>
 </div>
 

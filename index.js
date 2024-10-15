@@ -28,13 +28,13 @@ app.get("/find", async (req, res) => {
   }
 });
 
-app.get("/drink/:id", (req, res) => {
-  res.render("drink_details.ejs", { drinkId: req.params.id });
-});
-
-app.get("/drink", (req, res) => {
-  console.log(req.params);
-  res.render("drink_details.ejs");
+app.get("/drink/:id", async (req, res) => {
+  try {
+    let drink = await findDrinkById(req.params.id);
+    res.render("drink_details.ejs", { drink: drink });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 });
 
 app.listen(port, () => {
@@ -50,6 +50,13 @@ async function prepareDrinkList(reqQuery) {
   if (response.data.drinks !== null) {
     return mapToDrinkList(response.data.drinks);
   } else return [];
+}
+
+async function findDrinkById(id) {
+  let response = await axios(`${drinksDbBaseURL}/lookup.php?i=${id}`);
+  if (response.data.drinks !== null) {
+    return mapToDrinkList(response.data.drinks)[0];
+  } else return null;
 }
 
 function mapToDrinkList(elements) {
