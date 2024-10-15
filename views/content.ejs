@@ -50,9 +50,7 @@
   }
 
   function templateIndgredients(drink) {
-    console.log(drink);
     let html = `<p>`;
-    console.log(drink.ingredients.length);
     for (let i = 0; i < drink.ingredients.length; i++) {
       if (drink.ingredients[i].name != null) {
         html += `${drink.ingredients[i].name} `;
