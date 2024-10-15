@@ -28,6 +28,15 @@ app.get("/find", async (req, res) => {
   }
 });
 
+app.get("/drink/:id", (req, res) => {
+  res.render("drink_details.ejs", { drinkId: req.params.id });
+});
+
+app.get("/drink", (req, res) => {
+  console.log(req.params);
+  res.render("drink_details.ejs");
+});
+
 app.listen(port, () => {
   console.log(`Your app is running on port: ${port}`);
 });

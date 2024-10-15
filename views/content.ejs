@@ -40,7 +40,8 @@
     let htmlString = '<div class="finding-results">';
     data.forEach(drink => {
       htmlString += `<div class="drink-card">`
-      htmlString += `<h3>${drink.name}</h3>`;
+      htmlString += `<a href="/drink/${drink.id}"><h3>${drink.name}</h3></a>`;
+      htmlString += `<a href="/drink"><h3>${drink.name}</h3></a>`;
       htmlString += `<img src="${drink.imageURL}" alt="drink image">`;
       htmlString += templateIndgredients(drink);
       htmlString += `</div>`
