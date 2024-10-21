@@ -1,6 +1,7 @@
 <%- include('./partials/header.ejs')%>
 
 <div class="drink-details-container">
+  <button onclick="window.location.href='/'">Return</button>
   <%if(locals.drink) {%>
   <h1><%=drink.name%></h3>
     <p>Category: <%=drink.category%></p>
