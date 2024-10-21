@@ -1,16 +1,18 @@
 <%- include('./partials/header.ejs')%>
 
-<div class="finding-menu">
-  <h2>Find drink you want to prepare</h2>
-  <form action="/find" method="get">
-    <label for="name">Enter the name of the drink or part of it:</label>
-    <input type="text" name="name" id="name" required>
-    <button type="submit">SEARCH</button>
-  </form>
-</div>
+<div id="content">
+  <div class="finding-menu">
+    <h2>Find drink you want to prepare</h2>
+    <form action="/find" method="get">
+      <label for="name">Enter the name of the drink or part of it:</label>
+      <input type="text" name="name" id="name" required>
+      <button type="submit">SEARCH</button>
+    </form>
+  </div>
 
-<div id="data-container"></div>
-<div id="pagination-container"></div>
+  <div id="data-container"></div>
+  <div id="pagination-container"></div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="pagination.js"></script>

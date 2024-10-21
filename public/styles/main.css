@@ -1,22 +1,50 @@
 body {
-  background-color: rgb(59, 102, 244);
+  margin: 0;
 }
 
-.header {
+#header {
   text-align: center;
-  background-color: rgb(162, 162, 255);
-  height: 20vh;
+  background-color: #b7e0ff;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0;
+  background-image: url("/pictures/bar.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#header > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+#page-title {
+  z-index: 1;
+}
+
+#content {
+  background-color: #fff5cd;
+}
+
+#footer {
+  background-color: #e78f81;
+}
+
+#footer p {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .finding-menu {
   margin-left: 20vw;
   margin-right: 20vh;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .finding-results {
