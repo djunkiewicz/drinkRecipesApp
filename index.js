@@ -14,6 +14,9 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  if (req.query.clear === "true") {
+    drinkList = [];
+  }
   res.render("content.ejs", { data: drinkList });
 });
 

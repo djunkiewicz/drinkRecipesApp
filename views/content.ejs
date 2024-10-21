@@ -31,10 +31,11 @@
       }
     })
   } else {
-    var html = "<h3>We couldn't find the drink you were looking for 👻</h3>";
-    $('#data-container').html(html);
+    if (window.location.pathname != '/') {
+      var html = "<h3>We couldn't find the drink you were looking for 👻</h3>";
+      $('#data-container').html(html);
+    }
   }
-
 
   function singlePageTemplate(data) {
     let htmlString = '<div class="finding-results">';
