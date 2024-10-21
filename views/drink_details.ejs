@@ -6,13 +6,12 @@
     <p>Category: <%=drink.category%></p>
     <img src="<%=drink.imageURL%>" alt="<%=drink.name%> image">
     <%drink.ingredients.forEach((ingredient, index) => { %>
-      <img src="https://www.thecocktaildb.com/images/ingredients/<%=drink.ingredients[index].name%>-Medium.png" alt="<%=ingredient.name%> picture">
+    <img src="https://www.thecocktaildb.com/images/ingredients/<%=drink.ingredients[index].name%>-Medium.png" alt="<%=ingredient.name%> picture">
     <%})%>
     <p>How to prepare: <%=drink.instruction%></p>
     <%} else {%>
     <h3>We cannot find the page you are looking for</h3>
     <%}%>
-  <h3>TODO</h3>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

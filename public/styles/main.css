@@ -34,3 +34,8 @@ body {
 #pagination-container {
   margin-left: 25vw;
 }
+
+.btn-footer {
+  background-color: transparent;
+  border: none;
+}
