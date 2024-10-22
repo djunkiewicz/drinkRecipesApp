@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
 
 body {
   margin: 0;
@@ -22,7 +23,7 @@ body {
   color: #ff6a53;
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
   font-family: "Mynerve", cursive;
-  font-size: 90px;
+  font-size: 80px;
 }
 
 #header > img {
@@ -32,16 +33,19 @@ body {
   z-index: 2;
 }
 
-#page-title {
-  z-index: 1;
-}
-
 #content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Alata", sans-serif;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 #footer {
   background-color: #e78f81;
   margin-top: auto;
+  font-family: "Alata", sans-serif;
 }
 
 #footer p {
@@ -51,15 +55,16 @@ body {
 }
 
 .finding-menu {
-  margin-left: 20vw;
-  margin-right: 20vh;
+  text-align: center;
   padding-bottom: 50px;
   padding-top: 50px;
 }
 
+#data-container {
+  width: 100%;
+}
+
 .finding-results {
-  margin-left: 20vw;
-  margin-right: 20vh;
   margin-bottom: 25px;
   background-color: rgb(254, 184, 255);
 }
@@ -70,7 +75,6 @@ body {
 }
 
 #pagination-container {
-  margin-left: 25vw;
 }
 
 .btn-footer {
