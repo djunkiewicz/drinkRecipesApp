@@ -42,15 +42,15 @@
   function singlePageTemplate(data) {
     let htmlString = '<div class="finding-results">';
     data.forEach(drink => {
-      htmlString += `<div class="drink-card">`
-      htmlString += `<div class="card-img">`
+      htmlString += `<div class="drink-card" onclick="window.location='/drink/${drink.id}'">`;
+      htmlString += `<div class="card-img">`;
       htmlString += `<img src="${drink.imageURL}" alt="drink image">`;
-      htmlString += `</div>`
-      htmlString += `<div class="card-content">`
-      htmlString += `<a href="/drink/${drink.id}"><h3>${drink.name}</h3></a>`;
+      htmlString += `</div>`;
+      htmlString += `<div class="card-content">`;
+      htmlString += `<h3>${drink.name}</h3>`;
       htmlString += templateIndgredients(drink);
-      htmlString += `</div>`
-      htmlString += `</div>`
+      htmlString += `</div>`;
+      htmlString += `</div>`;
     });
     htmlString += '</div>';
     return htmlString;

@@ -56,6 +56,10 @@ body {
   border-radius: 5%/10%;
 }
 
+.drink-card a {
+  text-decoration: none;
+}
+
 .drink-card img {
   height: calc(var(--drink-card-width) / 2);
   aspect-ratio: 1/1;
