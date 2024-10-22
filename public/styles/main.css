@@ -6,6 +6,18 @@
   --drink-card-height: 200px;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
   margin: 0;
   display: flex;
@@ -54,6 +66,9 @@ body {
   height: var(--drink-card-height);
   text-align: right;
   border-radius: 5%/10%;
+  background: linear-gradient(-45deg, #e39285, #fca19b, #f8de77, #ffbd97);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
 }
 
 .drink-card a {
@@ -76,6 +91,11 @@ body {
   background-color: #e78f81;
   margin-top: auto;
   font-family: "Alata", sans-serif;
+  text-align: center;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #footer p {
@@ -95,11 +115,17 @@ body {
 }
 
 .finding-results {
-  margin-bottom: 25px;
-  background-color: rgb(254, 184, 255);
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 50px;
 }
 
 #pagination-container {
+  margin-bottom: 100px;
 }
 
 .btn-footer {

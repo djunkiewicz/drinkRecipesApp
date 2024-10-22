@@ -58,10 +58,14 @@
 
   function templateIndgredients(drink) {
     let html = `<p>`;
-    for (let i = 0; i < drink.ingredients.length; i++) {
+    let size = drink.ingredients.length <= 5 ? drink.ingredients.length : 5;
+    for (let i = 0; i < size; i++) {
       if (drink.ingredients[i].name != null) {
         html += `${drink.ingredients[i].name} <br>`;
       }
+    }
+    if (drink.ingredients.length > 5) {
+      html += '⚬⚬⚬';
     }
     html += `</p>`
     return html;
