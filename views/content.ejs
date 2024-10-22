@@ -25,7 +25,7 @@
   if (dataReceived.length !== 0) {
     $('#pagination-container').pagination({
       dataSource: dataReceived,
-      pageSize: 3,
+      pageSize: 9,
       className: 'paginationjs-big',
       callback: function(data, pagination) {
         var html = singlePageTemplate(data);
@@ -43,9 +43,13 @@
     let htmlString = '<div class="finding-results">';
     data.forEach(drink => {
       htmlString += `<div class="drink-card">`
-      htmlString += `<a href="/drink/${drink.id}"><h3>${drink.name}</h3></a>`;
+      htmlString += `<div class="card-img">`
       htmlString += `<img src="${drink.imageURL}" alt="drink image">`;
+      htmlString += `</div>`
+      htmlString += `<div class="card-content">`
+      htmlString += `<a href="/drink/${drink.id}"><h3>${drink.name}</h3></a>`;
       htmlString += templateIndgredients(drink);
+      htmlString += `</div>`
       htmlString += `</div>`
     });
     htmlString += '</div>';
@@ -56,7 +60,7 @@
     let html = `<p>`;
     for (let i = 0; i < drink.ingredients.length; i++) {
       if (drink.ingredients[i].name != null) {
-        html += `${drink.ingredients[i].name} `;
+        html += `${drink.ingredients[i].name} <br>`;
       }
     }
     html += `</p>`
