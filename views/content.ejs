@@ -2,11 +2,10 @@
 
 <div id="content">
   <div class="finding-menu">
-    <h2>Find drink you want to prepare</h2>
+    <h2>Enter the name of the drink or part of it:</h2>
     <form action="/find" method="get">
-      <label for="name">Enter the name of the drink or part of it:</label>
-      <input type="text" name="name" id="name" required>
-      <button type="submit">SEARCH</button>
+      <input class="input-custom1" type="text" name="name" id="name" required>
+      <button class="btn-custom1" type="submit">SEARCH</button>
     </form>
   </div>
 
@@ -22,21 +21,25 @@
 </script>
 
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const drinkName = params.get('name');
   if (dataReceived.length !== 0) {
     $('#pagination-container').pagination({
       dataSource: dataReceived,
       pageSize: 9,
       className: 'paginationjs-big',
       callback: function(data, pagination) {
-        var html = singlePageTemplate(data);
+        var html = `<h3>Search results for "${drinkName}"</h3>`;
+        html += singlePageTemplate(data);
         $('#data-container').html(html);
       }
     })
+  } else if (window.location.pathname != '/') {
+    var html = `<h3>We couldn't find a drink containing "${drinkName}"  👻</h3>`;
+    $('#data-container').html(html);
   } else {
-    if (window.location.pathname != '/') {
-      var html = "<h3>We couldn't find the drink you were looking for 👻</h3>";
-      $('#data-container').html(html);
-    }
+    var html = "<img id='drink-icon' src='/pictures/drink_icon.png'>";
+    $('#data-container').html(html);
   }
 
   function singlePageTemplate(data) {

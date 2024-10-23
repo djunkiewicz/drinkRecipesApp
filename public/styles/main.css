@@ -50,13 +50,43 @@ body {
   z-index: 2;
 }
 
+#drink-icon {
+  height: 150px;
+  margin-top: 25px;
+}
+
+.btn-custom1 {
+  border: 1.5px solid #000000;
+  background-color: #ff6a53;
+  color: #fff5cd;
+  font-family: "Alata", sans-serif;
+  border-radius: 15%/30%;
+  border-radius: 20px/20px;
+  height: 40px;
+  aspect-ratio: 2/1;
+  font-size: 16px;
+}
+
+.input-custom1 {
+  height: 40px;
+  width: 160px;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1.5px solid #000000;
+  border-radius: 20px/20px;
+  font-size: 16px;
+  font-family: "Alata", sans-serif;
+}
+
 #content {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Alata", sans-serif;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 .drink-card {
@@ -106,16 +136,18 @@ body {
 
 .finding-menu {
   text-align: center;
-  padding-bottom: 50px;
-  padding-top: 50px;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 #data-container {
   width: 100%;
+  text-align: center;
 }
 
 .finding-results {
   margin-bottom: 50px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
