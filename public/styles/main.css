@@ -101,6 +101,44 @@ body {
   animation: gradient 5s ease infinite;
 }
 
+.drink-details-container {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 75px;
+}
+
+.flex-1 {
+  flex: 4;
+  text-align: right;
+  margin-right: 25px;
+}
+
+.flex-2 {
+  flex: 4;
+  margin-right: 50px;
+}
+
+.flex-3 {
+  border-left: 1px solid black;
+  flex: 2;
+  padding-left: 25px;
+}
+
+.ingredient-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.drink-details-container .img-drink {
+  height: 500px;
+  border-radius: 15%;
+}
+
+.img-ingredients {
+  height: 100px;
+}
+
 .drink-card a {
   text-decoration: none;
 }
@@ -115,6 +153,10 @@ body {
 .card-content {
   width: 100%;
   margin-right: calc(0.05 * var(--drink-card-width));
+}
+
+#return-btn {
+  margin-top: 50px;
 }
 
 #footer {

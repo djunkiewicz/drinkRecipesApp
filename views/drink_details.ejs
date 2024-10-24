@@ -1,21 +1,29 @@
 <%- include('./partials/header.ejs')%>
 
 <div class="content">
-  <button class="btn-custom1" onclick="window.location.href='/'">Return</button>
+  <%if(locals.drink) {%>
+  <button id="return-btn" class="btn-custom1" onclick="window.location.href='/'">Return ↩</button>
   <div class="drink-details-container">
-
-    <%if(locals.drink) {%>
-    <h1><%=drink.name%></h3>
-      <p>Category: <%=drink.category%></p>
-      <img src="<%=drink.imageURL%>" alt="<%=drink.name%> image">
+    <div class="drink-details-column flex-1">
+      <img class="img-drink" src="<%=drink.imageURL%>" alt="<%=drink.name%> image">
+    </div>
+    <div class="drink-details-column flex-2">
+      <h1><%=drink.name%></h3>
+        <p>Category: <%=drink.category%></p>
+        <p>How to prepare: <%=drink.instruction%></p>
+    </div>
+    <div class="drink-details-column flex-3">
       <%drink.ingredients.forEach((ingredient, index) => { %>
-      <img src="https://www.thecocktaildb.com/images/ingredients/<%=drink.ingredients[index].name%>-Medium.png" alt="<%=ingredient.name%> picture">
+      <div class="ingredient-card">
+        <img class="img-ingredients" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.ingredients[index].name%>-Medium.png" alt="<%=ingredient.name%> picture">
+        <p>&nbsp;&nbsp;&nbsp;<%=drink.ingredients[index].measure%>&nbsp;<%=drink.ingredients[index].name%></p>
+      </div>
       <%})%>
-      <p>How to prepare: <%=drink.instruction%></p>
-      <%} else {%>
-      <h3>We cannot find the page you are looking for</h3>
-      <%}%>
+    </div>
   </div>
+  <%} else {%>
+  <h3>We cannot find the page you are looking for</h3>
+  <%}%>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
