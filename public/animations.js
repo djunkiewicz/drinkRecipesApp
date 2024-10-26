@@ -10,14 +10,17 @@ $(document).ready(function () {
   if (window.location.pathname.includes("drink")) {
     scrollDistance =
       $("html").height() - window.innerHeight - $("#footer").height() + 5;
+    scrollingTime = 200;
   }
 
   setTimeout(function () {
-    $("html, body").animate(
-      {
-        scrollTop: $(window).scrollTop() + scrollDistance,
-      },
-      scrollingTime
-    );
+    if ($(window).scrollTop() === 0) {
+      $("html, body").animate(
+        {
+          scrollTop: $(window).scrollTop() + scrollDistance,
+        },
+        scrollingTime
+      );
+    }
   }, sequenceDelay);
 });

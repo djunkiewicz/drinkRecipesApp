@@ -91,7 +91,7 @@ body {
 
 .drink-card {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid transparent;
   width: var(--drink-card-width);
   height: var(--drink-card-height);
   text-align: right;
@@ -99,6 +99,18 @@ body {
   background: linear-gradient(-45deg, #e39285, #fca19b, #f8de77, #ffbd97);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
+}
+
+.btn-custom1:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.drink-card:hover {
+  color: #fff5cd;
+  background: local;
+  background-color: #ff6a53;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .drink-details-container {
