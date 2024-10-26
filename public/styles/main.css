@@ -113,6 +113,10 @@ body {
   cursor: pointer;
 }
 
+#page-title:hover {
+  cursor: pointer;
+}
+
 .drink-details-container {
   display: flex;
   margin-top: 50px;
