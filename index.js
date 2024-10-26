@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import session from "express-session";
 
 const port = 3000;
 const app = express();
@@ -11,18 +12,32 @@ const drinksDbBaseURL = "https://www.thecocktaildb.com/api/json/v1/1";
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(
+  session({
+    secret: "UkBW8mHvqqdzsndF9u",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 10000,
+    },
+  })
+);
+
 app.get("/", (req, res) => {
-  if (req.query.keep !== "true") {
-    drinkList = [];
+  if (!req.session.drinkList) {
+    req.session.drinkList = [];
   }
-  res.render("content.ejs", { data: drinkList });
+  if (req.query.keep !== "true") {
+    req.session.drinkList = [];
+  }
+  res.render("content.ejs", { data: req.session.drinkList });
 });
 
 app.get("/find", async (req, res) => {
   try {
     if (nameRegex.test(req.query.name) === true) {
-      drinkList = await prepareDrinkList(req.query);
-      res.render("content.ejs", { data: drinkList });
+      req.session.drinkList = await prepareDrinkList(req.query);
+      res.render("content.ejs", { data: req.session.drinkList });
     }
   } catch (error) {
     res.status(500).send(error.message);
@@ -32,7 +47,6 @@ app.get("/find", async (req, res) => {
 app.get("/drink/:id", async (req, res) => {
   try {
     let drink = await findDrinkById(req.params.id);
-
     res.render("drink_details.ejs", { drink: drink });
   } catch (error) {
     res.status(500).send(error.message);
