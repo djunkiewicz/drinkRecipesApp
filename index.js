@@ -7,14 +7,12 @@ const app = express();
 const nameRegex = new RegExp(".*\\S.*");
 let drinkList = [];
 const drinksDbBaseURL = "https://www.thecocktaildb.com/api/json/v1/1";
-const ingredientsPicturesBaseURL =
-  "https://www.thecocktaildb.com/images/ingredients";
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  if (req.query.clear === "true") {
+  if (req.query.keep !== "true") {
     drinkList = [];
   }
   res.render("content.ejs", { data: drinkList });

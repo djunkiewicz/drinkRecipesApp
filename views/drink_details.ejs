@@ -2,7 +2,7 @@
 
 <div class="content">
   <%if(locals.drink) {%>
-  <button id="return-btn" class="btn-custom1" onclick="window.location.href='/'">Return ↩</button>
+  <button id="return-btn" class="btn-custom1" onclick="window.location.href='/?keep=true'">Return ↩</button>
   <div class="drink-details-container">
     <div class="drink-details-column flex-1">
       <img class="img-drink" src="<%=drink.imageURL%>" alt="<%=drink.name%> image">

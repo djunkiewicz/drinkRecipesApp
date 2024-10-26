@@ -22,20 +22,23 @@
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  const drinkName = params.get('name');
+  //const drinkName = params.get('name');
+  if (params.get('name') != null) {
+    localStorage.setItem("searchedPhrase", params.get('name'))
+  }
   if (dataReceived.length !== 0) {
     $('#pagination-container').pagination({
       dataSource: dataReceived,
       pageSize: 9,
       className: 'paginationjs-big',
       callback: function(data, pagination) {
-        var html = `<h3>Search results for "${drinkName}"</h3>`;
+        var html = `<h3>Search results for "${localStorage.getItem("searchedPhrase")}"</h3>`;
         html += singlePageTemplate(data);
         $('#data-container').html(html);
       }
     })
   } else if (window.location.pathname != '/') {
-    var html = `<h3>We couldn't find a drink containing "${drinkName}"  👻</h3>`;
+    var html = `<h3>We couldn't find a drink containing "${localStorage.getItem("searchedPhrase")}"  👻</h3>`;
     $('#data-container').html(html);
   } else {
     var html = "<img id='drink-icon' src='/pictures/drink_icon.png'>";
