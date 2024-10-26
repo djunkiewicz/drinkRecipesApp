@@ -63,7 +63,13 @@
 
   function templateIndgredients(drink) {
     let html = `<p>`;
-    let size = drink.ingredients.length <= 5 ? drink.ingredients.length : 5;
+    let ammountToDisplay = 5;
+    if (drink.name.length > 24) {
+      ammountToDisplay = 2;
+    } else if (drink.name.length > 18) {
+      ammountToDisplay = 3;
+    }
+    let size = drink.ingredients.length <= ammountToDisplay ? drink.ingredients.length : ammountToDisplay;
     for (let i = 0; i < size; i++) {
       if (drink.ingredients[i].name != null) {
         html += `${drink.ingredients[i].name} <br>`;
