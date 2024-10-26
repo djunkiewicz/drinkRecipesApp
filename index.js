@@ -129,6 +129,6 @@ function mapToDrinkList(elements) {
         name: element.strIngredient15,
         measure: element.strMeasure15,
       },
-    ].filter((ingredient) => ingredient.name != null),
+    ].filter((ingredient) => ingredient.name != null && ingredient.name != ""),
   }));
 }

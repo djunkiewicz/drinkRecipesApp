@@ -22,7 +22,6 @@
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  //const drinkName = params.get('name');
   if (params.get('name') != null) {
     localStorage.setItem("searchedPhrase", params.get('name'))
   }
@@ -47,6 +46,7 @@
 
   function singlePageTemplate(data) {
     let htmlString = '<div class="finding-results">';
+    console.log(data[0].name + " " + data[0].ingredients.length);
     data.forEach(drink => {
       htmlString += `<div class="drink-card" onclick="window.location='/drink/${drink.id}'">`;
       htmlString += `<div class="card-img">`;
