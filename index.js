@@ -6,7 +6,6 @@ import session from "express-session";
 const port = 3000;
 const app = express();
 const nameRegex = new RegExp(".*\\S.*");
-let drinkList = [];
 const drinksDbBaseURL = "https://www.thecocktaildb.com/api/json/v1/1";
 
 app.use(express.static("public"));
@@ -37,6 +36,8 @@ app.get("/find", async (req, res) => {
   try {
     if (nameRegex.test(req.query.name) === true) {
       req.session.drinkList = await prepareDrinkList(req.query);
+      res.render("content.ejs", { data: req.session.drinkList });
+    } else {
       res.render("content.ejs", { data: req.session.drinkList });
     }
   } catch (error) {
