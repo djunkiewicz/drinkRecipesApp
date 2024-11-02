@@ -1,7 +1,7 @@
-import express from "express";
-import axios from "axios";
-import bodyParser from "body-parser";
-import session from "express-session";
+const express = require("express");
+const axios = require("axios");
+const bodyParser = require("body-parser");
+const session = require("express-session");
 
 const port = 3000;
 const app = express();
